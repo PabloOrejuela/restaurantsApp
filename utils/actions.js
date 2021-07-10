@@ -2,6 +2,7 @@
 import {firebaseApp} from './db';
 import * as firebase from 'firebase';
 import 'firebase/firestore';
+//import firebase from 'firebase';
 
 const db = firebase.firestore(firebaseApp);
 
@@ -11,4 +12,8 @@ export const isUserLogged = () => {
     firebase.auth().onAuthStateChanged((user) => {
         user !== null && (isLogged = true);
     });
+}
+
+export const getCurrentUser = () => {
+    return firebase.auth().currentUser;
 }
