@@ -7,7 +7,7 @@ import 'firebase/firestore';
 
 import UserGuest from './UserGuest';
 import UserLogged from './UserLogged';
-import { getCurrentUser } from '../../utils/actions';
+import { isUserLogged } from '../../utils/actions';
 import Loading from '../../components/Loading';
 
 export default function Account() {
@@ -17,8 +17,7 @@ export default function Account() {
 
     useEffect(() => {
         //Verifico el usuario logeado
-        const user = getCurrentUser();
-        user ? setLogin(true) : setLogin(false);
+        setLogin(isUserLogged());
     }, [])
 
     if (login == null) {
