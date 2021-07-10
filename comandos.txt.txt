@@ -6,3 +6,8 @@ C:\Users\Wolf\AppData\Local\Android\Sdk\emulator>
 
 #Comando para arrancar el emulador
 .\emulator.exe -avd "Pixel_2_API_28"
+
+#React native elements para cargar modales, etc.
+
+#para cargar un template de componente con stylesheet
+rnfs
