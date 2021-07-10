@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from 'react-native'
 export default function TopRestaurants() {
     return (
         <View>
-            <Text>Top Restaurants</Text>
+            <Text>Los mas puntuados</Text>
         </View>
     )
 }

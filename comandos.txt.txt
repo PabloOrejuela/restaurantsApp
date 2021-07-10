@@ -1,0 +1,8 @@
+#Ruta del emulador
+C:\Users\Wolf\AppData\Local\Android\Sdk\emulator> 
+
+#Ver los emuladores  
+.\emulator.exe -list-avds
+
+#Comando para arrancar el emulador
+.\emulator.exe -avd "Pixel_2_API_28"
