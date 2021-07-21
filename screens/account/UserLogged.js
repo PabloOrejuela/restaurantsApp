@@ -4,6 +4,7 @@ import { Button } from 'react-native-elements';
 import { useNavigation } from '@react-navigation/native';
 import { closeSession } from '../../utils/actions';
 import Toast from 'react-native-easy-toast';
+import Loading from '../../components/Loading';
 
 
 export default function UserLogged() {
@@ -26,6 +27,8 @@ export default function UserLogged() {
                     navigation.navigate("restaurants")
                 }}
             />
+            <Toast ref={toastRef} position="center" opacity={0.9} />
+            <Loading isVisible={loading} text={loadingText} />
         </View>
     )
 }
