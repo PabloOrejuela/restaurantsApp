@@ -1,25 +1,32 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useCallback} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-
 import firebaseApp from '../../utils/db';
 import firebase from 'firebase';
 import 'firebase/firestore';
 
 import UserGuest from './UserGuest';
 import UserLogged from './UserLogged';
-import { isUserLogged } from '../../utils/actions';
+import { getCurrentUser, isUserLogged } from '../../utils/actions';
 import Loading from '../../components/Loading';
+import { useFocusEffect } from '@react-navigation/native';
 
 export default function Account() {
 
     //Hook de estado inicial
     const [login, setLogin] = useState(null);
 
-    useEffect(() => {
-        //Verifico el usuario logeado
-        setLogin(isUserLogged());
-    }, [])
+    useFocusEffect(
+        useCallback(() => {
+            
+            //extraigo el usuario actual
+            const user = getCurrentUser();
+            
+            //Verifico el usuario logeado
+            user ? setLogin(true) : setLogin(false);
+        }, [])
+    )
 
+    
     if (login == null) {
         return <Loading isVisible={true} text="cargando... espere"/>
     }

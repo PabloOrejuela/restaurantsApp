@@ -6,6 +6,7 @@ import { Icon } from "react-native-elements/dist/icons/Icon";
 //Importo componentes de pantallas navegacion STACK
 import RestaurantsStack from "./RestaurantsStack";
 import AccountStack from "./AccountStack";
+import CreditsStack from "./CreditsStack";
 import FavoritesStack from "./FavotitesStack";
 import TopRestaurantsStack from "./TopRestaurantsStack";
 import SearchStack from "./SearchStack";
@@ -37,6 +38,10 @@ export default function Navigation() {
 
       case "account":
         iconName = "home-outline";
+        break;
+
+      case "credits":
+        iconName = "file-code-outline";
         break;
     }
 
@@ -86,6 +91,11 @@ export default function Navigation() {
           name="account"
           component={AccountStack}
           options={{ title: "Cuenta" }}
+        />
+        <Tab.Screen
+          name="credits"
+          component={CreditsStack}
+          options={{ title: "Créditos" }}
         />
       </Tab.Navigator>
     </NavigationContainer>

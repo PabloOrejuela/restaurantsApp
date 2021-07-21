@@ -11,3 +11,10 @@ C:\Users\Wolf\AppData\Local\Android\Sdk\emulator>
 
 #para cargar un template de componente con stylesheet
 rnfs
+
+#Librería con funciones de ayuda
+lodash
+
+#Librería para implementar mensajes toast
+react-native-easy-toast
+
