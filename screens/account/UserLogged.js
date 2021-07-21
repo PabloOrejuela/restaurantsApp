@@ -1,10 +1,12 @@
-import React, {useState, useRef} from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Button } from 'react-native-elements';
 import { useNavigation } from '@react-navigation/native';
-import { closeSession } from '../../utils/actions';
+import { closeSession, getCurrentUser } from '../../utils/actions';
 import Toast from 'react-native-easy-toast';
 import Loading from '../../components/Loading';
+
+import InfoUser from '../../components/account/InfoUser';
 
 
 export default function UserLogged() {
@@ -13,10 +15,20 @@ export default function UserLogged() {
 
     const [loading, setLoading] = useState(false);
     const [loadingText, setLoadingText] = useState("");
+    const [user, setUser] = useState(null);
+
+    useEffect(() => {
+        setUser(getCurrentUser());
+    },[]);
 
     return (
+        
         <View style={styles.container} >
-            <Text>Info User</Text>
+            
+            {
+               user && <InfoUser user={user} /> 
+            }
+            
             <Text>Account options</Text>
             <Button 
                 title = "Cerrar sesión"

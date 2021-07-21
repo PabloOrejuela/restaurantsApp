@@ -18,3 +18,9 @@ lodash
 #Librería para implementar mensajes toast
 react-native-easy-toast
 
+#Instalar los permisos para acceder a directorios
+expo install expo-permissions
+
+#Provee al sistema para acceder a imagenes
+expo install expo-image-picker
+
